@@ -1,0 +1,12 @@
+[Unit]
+Description=Docker Container %i
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=always
+ExecStart=/usr/bin/docker start -a ultralytics-8.3.28-jetson-jetpack4
+ExecStop=/usr/bin/docker stop -t 2 ultralytics-8.3.28-jetson-jetpack4
+
+[Install]
+WantedBy=multi-user.target
